@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/columns.dart';
 import 'screens/home.dart';
 import 'screens/rows.dart';
+import 'screens/map.dart';
 
 class AppRoutes extends StatelessWidget {
   const AppRoutes({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class AppRoutes extends StatelessWidget {
         HomeScreen.route: (_) => HomeScreen(),
         ColumnsScreen.route: (_) => ColumnsScreen(),
         RowsScreen.route: (_) => RowsScreen(),
+        MapScreen.route: (_) => MapScreen(),
       },
     );
   }

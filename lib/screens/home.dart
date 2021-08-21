@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gdg_mentorship_21aug/screens/rows.dart';
 
 import 'columns.dart';
+import 'map.dart';
 
 class HomeScreen extends StatelessWidget {
   static final route = "home";
@@ -23,6 +24,10 @@ class HomeScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: () => Navigator.pushNamed(context, RowsScreen.route),
             child: Text("Rows Screen"),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, MapScreen.route),
+            child: Text("Map Screen"),
           ),
         ],
       ),
