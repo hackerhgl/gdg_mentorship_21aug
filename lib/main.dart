@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'navigator.dart';
+import 'routes.dart';
 
 void main() {
-  runApp(AppNavigator());
+  runApp(AppRoutes());
 }
