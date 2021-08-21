@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'columns.dart';
+
 class HomeScreen extends StatelessWidget {
+  static final route = "home";
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,6 +15,10 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           Text("Home screen"),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, ColumnsScreen.route),
+            child: Text("Column Screen"),
+          ),
         ],
       ),
     );

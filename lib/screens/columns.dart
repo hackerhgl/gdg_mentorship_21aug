@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColumnsScreen extends StatelessWidget {
+  static final route = "columns";
+
   const ColumnsScreen({Key? key}) : super(key: key);
 
   @override
