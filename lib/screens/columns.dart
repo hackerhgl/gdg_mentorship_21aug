@@ -8,15 +8,15 @@ class ColumnsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Column screen"),
-      ),
       body: Container(
-        color: Colors.blue,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text("Go back"),
+            ),
             Container(
               color: Colors.red,
               padding: EdgeInsets.symmetric(
@@ -25,7 +25,6 @@ class ColumnsScreen extends StatelessWidget {
               ),
               child: Text("Symmetric"),
             ),
-            Text("Hello 1"),
             Text("Hello 2"),
             Text("Hello 3"),
             Text("wow"),
