@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      initialRoute: AppRoutes.signup,
+      initialRoute: AppRoutes.splash,
       routes: {
         AppRoutes.splash: (_) => SplashScreen(),
         AppRoutes.signup: (_) => SignupScreen(),
