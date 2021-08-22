@@ -1,6 +1,6 @@
 class Space {
-  static const x = 4;
-  static const x1 = 8;
-  static const x2 = 12;
-  static const x3 = 16;
+  static const double x = 4.0;
+  static const double x1 = 8.0;
+  static const double x2 = 12.0;
+  static const double x3 = 16.0;
 }
