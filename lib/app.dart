@@ -47,15 +47,15 @@ class _MyAppState extends State<MyApp> {
           fillColor: AppColors.dark2,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
-              color: AppColors.light,
-            ),
+            borderSide: BorderSide(color: AppColors.light),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
-              color: AppColors.light,
-            ),
+            borderSide: BorderSide(color: AppColors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: AppColors.light),
           ),
         ),
       ),
