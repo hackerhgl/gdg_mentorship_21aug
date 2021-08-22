@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gdg_mentorship_21aug_flutter/screens/home.dart';
+import 'package:gdg_mentorship_21aug_flutter/screens/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:gdg_mentorship_21aug_flutter/configs/colors.dart';
@@ -62,6 +63,7 @@ class _MyAppState extends State<MyApp> {
         AppRoutes.splash: (_) => SplashScreen(),
         AppRoutes.signup: (_) => SignupScreen(),
         AppRoutes.home: (_) => HomeScreen(),
+        AppRoutes.login: (_) => LoginScreen(),
       },
     );
   }

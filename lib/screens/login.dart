@@ -7,8 +7,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gdg_mentorship_21aug_flutter/routes.dart';
 import 'package:gdg_mentorship_21aug_flutter/utils/space.dart';
 
-class SignupScreen extends StatelessWidget {
-  SignupScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  LoginScreen({Key? key}) : super(key: key);
   final formKey = GlobalKey<FormBuilderState>();
 
   void _showBasicsFlash(
@@ -56,16 +56,15 @@ class SignupScreen extends StatelessWidget {
             child: FormBuilder(
               key: this.formKey,
               initialValue: {
-                "name": "Hamza",
-                "email": "hamza@gmail.com",
-                "password": "hamza1",
+                // "email": "hamza@gmail.com",
+                // "password": "hamza1",
               },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(height: Space.x3),
                   Text(
-                    "Let's Sign you up",
+                    "Let's Sign you in",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w900,
@@ -73,7 +72,7 @@ class SignupScreen extends StatelessWidget {
                   ),
                   SizedBox(height: Space.x1),
                   Text(
-                    "Welcome\nSign you up",
+                    "Welcome back\yyou've been missed",
                     style: TextStyle(
                       height: 1.2,
                       fontSize: 26,
@@ -83,18 +82,6 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(height: Space.x3),
                   SizedBox(height: Space.x3),
                   SizedBox(height: Space.x3),
-                  FormBuilderTextField(
-                    name: 'name',
-                    decoration: InputDecoration(labelText: "Full Name"),
-                    validator: FormBuilderValidators.compose([
-                      FormBuilderValidators.required(
-                        context,
-                        errorText: "Please enter your full name",
-                      ),
-                      FormBuilderValidators.minLength(context, 3),
-                      FormBuilderValidators.maxLength(context, 40),
-                    ]),
-                  ),
                   SizedBox(height: Space.x2),
                   FormBuilderTextField(
                     name: 'email',
@@ -136,7 +123,7 @@ class SignupScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account? ",
+                        "Don't have an account? ",
                         style: TextStyle(color: AppColors.grey),
                       ),
                       GestureDetector(
@@ -144,7 +131,7 @@ class SignupScreen extends StatelessWidget {
                           context,
                           AppRoutes.login,
                         ),
-                        child: Text("Login"),
+                        child: Text("Register"),
                       ),
                     ],
                   ),
