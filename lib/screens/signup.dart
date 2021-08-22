@@ -148,7 +148,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: Space.x3),
+                  // SizedBox(height: Space.x3),
                   // ElevatedButton(
                   //   onPressed: () {
                   //     Navigator.pushNamed(context, AppRoutes.dummy);

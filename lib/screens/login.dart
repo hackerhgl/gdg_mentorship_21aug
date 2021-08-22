@@ -127,10 +127,7 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(color: AppColors.grey),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.pushNamed(
-                          context,
-                          AppRoutes.login,
-                        ),
+                        onTap: () => Navigator.pop(context),
                         child: Text("Register"),
                       ),
                     ],
@@ -143,29 +140,26 @@ class LoginScreen extends StatelessWidget {
                         final data = this.formKey.currentState!.value;
                         final String email = data['email'];
                         final String password = data['password'];
-                        final String name = data['name'];
                         try {
                           _showBasicsFlash(context, "Loading");
+
                           UserCredential userCredential = await FirebaseAuth
                               .instance
-                              .createUserWithEmailAndPassword(
-                            email: email,
-                            password: password,
-                          );
+                              .signInWithEmailAndPassword(
+                                  email: email, password: password);
 
-                          await userCredential.user?.updateDisplayName(name);
-
-                          _showBasicsFlash(context, "user registered");
+                          _showBasicsFlash(context, "user logged in");
+                          Navigator.pop(context);
                           Navigator.pushReplacementNamed(
                             context,
                             AppRoutes.home,
                           );
                         } on FirebaseAuthException catch (e) {
                           var text = "FAILED";
-                          if (e.code == 'weak-password') {
-                            text = 'The password provided is too weak.';
-                          } else if (e.code == 'email-already-in-use') {
-                            text = 'The account already exists for that email.';
+                          if (e.code == 'user-not-found') {
+                            text = ('No user found for that email.');
+                          } else if (e.code == 'wrong-password') {
+                            text = ('Wrong password provided for that user.');
                           }
                           _showBasicsFlash(context, text);
                         } catch (e) {
@@ -174,7 +168,7 @@ class LoginScreen extends StatelessWidget {
                       }
                     },
                     child: Text(
-                      "Sign up",
+                      "Log in",
                       style: TextStyle(
                         color: AppColors.dark,
                         fontWeight: FontWeight.w500,
