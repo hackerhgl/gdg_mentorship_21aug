@@ -167,13 +167,7 @@ class LoginScreen extends StatelessWidget {
                         }
                       }
                     },
-                    child: Text(
-                      "Log in",
-                      style: TextStyle(
-                        color: AppColors.dark,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    child: Text("Log in"),
                   ),
                 ],
               ),

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gdg_mentorship_21aug_flutter/configs/colors.dart';
 import 'package:gdg_mentorship_21aug_flutter/routes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,12 +21,7 @@ class HomeScreen extends StatelessWidget {
                 await ins.signOut();
                 Navigator.pushReplacementNamed(context, AppRoutes.signup);
               },
-              child: Text(
-                "LogOUt",
-                style: TextStyle(
-                  color: AppColors.dark,
-                ),
-              ),
+              child: Text("Log Out"),
             ),
           ],
         ),
