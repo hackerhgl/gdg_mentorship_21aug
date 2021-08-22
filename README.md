@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+Figma: https://www.figma.com/file/zL4aHU6LvtJC4L0B4OZiNH/JobPostinApp?node-id=0%3A1
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
