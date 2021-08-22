@@ -21,10 +21,15 @@ class SignupScreen extends StatelessWidget {
           }
         },
         child: SafeArea(
-          child: Padding(
+          child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: Space.x2),
             child: FormBuilder(
               key: this.formKey,
+              initialValue: {
+                "name": "Hamza",
+                "email": "hamza@gmail.com",
+                "password": "hamza1",
+              },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -51,16 +56,50 @@ class SignupScreen extends StatelessWidget {
                   FormBuilderTextField(
                     name: 'name',
                     decoration: InputDecoration(labelText: "Full Name"),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(
+                        context,
+                        errorText: "Please enter your full name",
+                      ),
+                      FormBuilderValidators.minLength(context, 3),
+                      FormBuilderValidators.maxLength(context, 40),
+                    ]),
                   ),
                   SizedBox(height: Space.x2),
                   FormBuilderTextField(
                     name: 'email',
                     decoration: InputDecoration(labelText: "Email"),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(
+                        context,
+                        errorText: "Please enter your email address",
+                      ),
+                      FormBuilderValidators.email(
+                        context,
+                        errorText: "Please enter a valid email address",
+                      ),
+                    ]),
                   ),
                   SizedBox(height: Space.x2),
                   FormBuilderTextField(
                     name: 'password',
-                    decoration: InputDecoration(labelText: "Password"),
+                    obscuringCharacter: '*',
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                    ),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(
+                        context,
+                        errorText: "Please enter your password",
+                      ),
+                      FormBuilderValidators.minLength(
+                        context,
+                        6,
+                        errorText:
+                            "Password should be at least 6 characters long",
+                      ),
+                    ]),
                   ),
                   SizedBox(height: Space.x5),
                   Row(
@@ -75,11 +114,13 @@ class SignupScreen extends StatelessWidget {
                   ),
                   SizedBox(height: Space.x3),
                   ElevatedButton(
-                    // style: ButtonStyle(
-                    //   backgroundColor: AppColors.light,
-                    // ),
                     onPressed: () {
-                      print("Test");
+                      final flag = this.formKey.currentState!.saveAndValidate();
+                      if (flag) {
+                        final data = this.formKey.currentState!.value;
+                        print(data);
+                        print("OK DATA");
+                      }
                     },
                     child: Text(
                       "Sign up",
