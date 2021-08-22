@@ -7,6 +7,14 @@
 			"type": "dart"
 		},
 		{
+			"name": "sdk gphone x86 arm (mobile)",
+			"deviceId": "emulator-5554",
+			"type": "dart",
+			"request": "launch",
+			"os": "android",
+			"args": []
+		},
+		{
 			"name": "iPhone 8 (mobile)",
 			"deviceId": "BB313576-8AAC-49C6-B359-2C736BB6DA51",
 			"type": "dart",
