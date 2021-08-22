@@ -7,11 +7,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: AppRoutes.splash,
-      routes: {
-        AppRoutes.splash: (_) => SplashScreen(),
-      },
+    return Theme(
+      data: Theme.of(context),
+      child: MaterialApp(
+        initialRoute: AppRoutes.splash,
+        routes: {
+          AppRoutes.splash: (_) => SplashScreen(),
+        },
+      ),
     );
   }
 }
