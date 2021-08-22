@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flash/flash.dart';
 
 import 'package:gdg_mentorship_21aug_flutter/configs/colors.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -7,6 +9,33 @@ import 'package:gdg_mentorship_21aug_flutter/utils/space.dart';
 class SignupScreen extends StatelessWidget {
   SignupScreen({Key? key}) : super(key: key);
   final formKey = GlobalKey<FormBuilderState>();
+
+  void _showBasicsFlash(
+    BuildContext context,
+    String text,
+  ) {
+    showFlash(
+      context: context,
+      duration: Duration(seconds: 1),
+      builder: (context, controller) {
+        return Flash(
+          controller: controller,
+          behavior: FlashBehavior.floating,
+          position: FlashPosition.bottom,
+          boxShadows: kElevationToShadow[4],
+          horizontalDismissDirection: HorizontalDismissDirection.horizontal,
+          child: FlashBar(
+            content: Text(
+              text,
+              style: TextStyle(
+                color: AppColors.dark,
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,12 +143,36 @@ class SignupScreen extends StatelessWidget {
                   ),
                   SizedBox(height: Space.x3),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       final flag = this.formKey.currentState!.saveAndValidate();
                       if (flag) {
                         final data = this.formKey.currentState!.value;
-                        print(data);
-                        print("OK DATA");
+                        final String email = data['email'];
+                        final String password = data['password'];
+                        final String name = data['name'];
+                        try {
+                          _showBasicsFlash(context, "Loading");
+                          UserCredential userCredential = await FirebaseAuth
+                              .instance
+                              .createUserWithEmailAndPassword(
+                            email: email,
+                            password: password,
+                          );
+
+                          await userCredential.user?.updateDisplayName(name);
+
+                          _showBasicsFlash(context, "user registered");
+                        } on FirebaseAuthException catch (e) {
+                          var text = "FAILED";
+                          if (e.code == 'weak-password') {
+                            text = 'The password provided is too weak.';
+                          } else if (e.code == 'email-already-in-use') {
+                            text = 'The account already exists for that email.';
+                          }
+                          _showBasicsFlash(context, text);
+                        } catch (e) {
+                          print(e);
+                        }
                       }
                     },
                     child: Text(

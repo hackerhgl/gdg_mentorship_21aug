@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  flash: ^2.0.1
   pigment: ^1.0.4
   google_fonts: ^2.1.0
   firebase_core: '1.5.0'
