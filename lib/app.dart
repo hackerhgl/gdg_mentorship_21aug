@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gdg_mentorship_21aug_flutter/screens/dummy.dart';
 import 'package:gdg_mentorship_21aug_flutter/screens/home.dart';
 import 'package:gdg_mentorship_21aug_flutter/screens/login.dart';
+import 'package:gdg_mentorship_21aug_flutter/utils/space.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:gdg_mentorship_21aug_flutter/configs/colors.dart';
@@ -28,8 +29,13 @@ class _MyAppState extends State<MyApp> {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             primary: AppColors.light,
+            onPrimary: AppColors.dark,
+            padding: EdgeInsets.symmetric(
+              vertical: Space.x2,
+            ),
             textStyle: TextStyle(
-              color: AppColors.dark,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

@@ -211,13 +211,7 @@ class SignupScreen extends StatelessWidget {
                         }
                       }
                     },
-                    child: Text(
-                      "Sign up",
-                      style: TextStyle(
-                        color: AppColors.dark,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    child: Text("Sign up"),
                   ),
                 ],
               ),
