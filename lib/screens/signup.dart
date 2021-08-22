@@ -149,6 +149,31 @@ class SignupScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: Space.x3),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     Navigator.pushNamed(context, AppRoutes.dummy);
+                  //   },
+                  //   child: Text(
+                  //     "PUSH",
+                  //     style: TextStyle(
+                  //       color: AppColors.dark,
+                  //       fontWeight: FontWeight.w500,
+                  //     ),
+                  //   ),
+                  // ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     Navigator.pushReplacementNamed(context, AppRoutes.dummy);
+                  //   },
+                  //   child: Text(
+                  //     "PUSH REPLACE",
+                  //     style: TextStyle(
+                  //       color: AppColors.dark,
+                  //       fontWeight: FontWeight.w500,
+                  //     ),
+                  //   ),
+                  // ),
+                  SizedBox(height: Space.x3),
                   ElevatedButton(
                     onPressed: () async {
                       final flag = this.formKey.currentState!.saveAndValidate();
