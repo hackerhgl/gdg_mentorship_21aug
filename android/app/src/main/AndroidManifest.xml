@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gdg_mentorship_21aug">
+    package="com.gdg_flutter_firease.gdg_mentorship_21aug_flutter">
    <application
-        android:label="gdg_mentorship_21aug"
+        android:label="gdg_mentorship_21aug_flutter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

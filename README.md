@@ -1,4 +1,4 @@
-# gdg_mentorship_21aug
+# gdg_mentorship_21aug_flutter
 
 A new Flutter project.
 
