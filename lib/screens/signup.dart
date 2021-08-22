@@ -4,6 +4,7 @@ import 'package:flash/flash.dart';
 
 import 'package:gdg_mentorship_21aug_flutter/configs/colors.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:gdg_mentorship_21aug_flutter/routes.dart';
 import 'package:gdg_mentorship_21aug_flutter/utils/space.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -162,6 +163,10 @@ class SignupScreen extends StatelessWidget {
                           await userCredential.user?.updateDisplayName(name);
 
                           _showBasicsFlash(context, "user registered");
+                          Navigator.pushReplacementNamed(
+                            context,
+                            AppRoutes.home,
+                          );
                         } on FirebaseAuthException catch (e) {
                           var text = "FAILED";
                           if (e.code == 'weak-password') {

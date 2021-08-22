@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gdg_mentorship_21aug_flutter/screens/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:gdg_mentorship_21aug_flutter/configs/colors.dart';
@@ -6,12 +7,20 @@ import 'package:gdg_mentorship_21aug_flutter/routes.dart';
 import 'package:gdg_mentorship_21aug_flutter/screens/signup.dart';
 import 'package:gdg_mentorship_21aug_flutter/screens/splash.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: this.navigatorKey,
       theme: Theme.of(context).copyWith(
         scaffoldBackgroundColor: AppColors.dark,
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -52,6 +61,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.splash: (_) => SplashScreen(),
         AppRoutes.signup: (_) => SignupScreen(),
+        AppRoutes.home: (_) => HomeScreen(),
       },
     );
   }
